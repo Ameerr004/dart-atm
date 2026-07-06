@@ -28,6 +28,7 @@ deposit, withdraw, or transfer.
 ## How to run
 
 ```bash
+dart pub get          # once, to set up the package
 dart run bin/atm.dart # start the app
 ```
 
