@@ -1,4 +1,4 @@
-enum TransactionKind { deposit, withdrawal, transfer }
+import 'transaction_kind.dart';
 
 /// One line in an account's history. It records what happened,
 /// how much, and when.

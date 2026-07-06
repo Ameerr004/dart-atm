@@ -1,5 +1,7 @@
-import 'exceptions.dart';
-import 'transaction.dart';
+import 'package:atm/exceptions/insufficient_funds_exception.dart';
+import 'package:atm/exceptions/invalid_amount_exception.dart';
+import 'package:atm/transaction/transaction.dart';
+import 'package:atm/transaction/transaction_kind.dart';
 
 class Account {
   final String id;
@@ -49,26 +51,4 @@ class Account {
 
   @override
   String toString() => '$id  $owner  \$${_balance.toStringAsFixed(2)}';
-}
-
-/// A savings account is an account that can earn interest.
-class SavingsAccount extends Account {
-  final double interestRate;
-
-  SavingsAccount(
-    String id,
-    String owner, {
-    this.interestRate = 0.02,
-    double openingBalance = 0,
-  }) : super(id, owner, openingBalance);
-
-  void applyInterest() {
-    deposit(balance * interestRate);
-  }
-
-  @override
-  String toString() {
-    final percent = (interestRate * 100).toStringAsFixed(1);
-    return '${super.toString()}  (savings @ $percent%)';
-  }
 }

@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:atm/bank.dart';
-import 'package:atm/exceptions.dart';
+import 'package:atm/exceptions/atm_exception.dart';
+import 'package:atm/exceptions/invalid_amount_exception.dart';
 
 void main() {
   final bank = Bank();

@@ -51,15 +51,30 @@ have something to play with immediately.
 
 ## Project structure
 
-Each file has **one responsibility** — that is itself a clean-code rule.
+Each file holds **one class** — that is itself a clean-code rule. Files are
+grouped into folders by topic:
 
-| File | Responsibility |
-|------|----------------|
-| [`bin/atm.dart`](bin/atm.dart) | The menu loop and all user input/output |
-| [`lib/bank.dart`](lib/bank.dart) | Stores accounts and looks them up by id |
-| [`lib/account.dart`](lib/account.dart) | Account rules: deposit / withdraw + inheritance |
-| [`lib/transaction.dart`](lib/transaction.dart) | One history record + the `enum` |
-| [`lib/exceptions.dart`](lib/exceptions.dart) | Custom error types |
+```
+bin/
+  atm.dart                    the menu loop and all user input/output
+lib/
+  bank.dart                   stores accounts and looks them up by id
+  account/
+    account.dart              base account: deposit / withdraw rules
+    savings_account.dart      subclass that earns interest (inheritance)
+  transaction/
+    transaction.dart          one history record
+    transaction_kind.dart     the enum of transaction types
+  exceptions/
+    atm_exception.dart        base error type
+    invalid_amount_exception.dart
+    insufficient_funds_exception.dart
+    account_not_found_exception.dart
+```
+
+Splitting the base class and its subclass into separate files
+(`account.dart` / `savings_account.dart`) keeps each inheritance step easy
+to read on its own.
 
 The three layers talk to each other like this:
 
