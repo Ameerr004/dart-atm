@@ -4,9 +4,6 @@
 build/
 pubspec.lock
 
-# Kept local only (not published for now)
-pubspec.yaml
-
 # IDE
 .idea/
 .vscode/
